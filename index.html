@@ -27,39 +27,46 @@
 html,body{height:100%;background:var(--bg);color:var(--tx);font-family:var(--mono);overflow:hidden}
 #app{display:flex;flex-direction:column;height:100vh;height:-webkit-fill-available}
 
-/* ── Header ── */
-#hdr{flex-shrink:0;padding:calc(var(--st) + 10px) 16px 10px;background:var(--bg);border-bottom:0.5px solid var(--bd2);display:flex;justify-content:space-between;align-items:center}
+/* HEADER */
+#hdr{flex-shrink:0;padding:calc(var(--st)+10px) 16px 10px;background:var(--bg);border-bottom:0.5px solid var(--bd2);display:flex;justify-content:space-between;align-items:center}
 .hdr-l .app-lbl{font-size:9px;color:var(--mu);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:1px}
 .hdr-l .month{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--tx);line-height:1}
 .hdr-r{text-align:right}
 .hdr-r .tot-lbl{font-size:9px;color:var(--mu);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1px}
 .hdr-r .tot-val{font-size:18px;font-weight:600;color:var(--ac);font-family:var(--serif);line-height:1}
 
-/* ── User pills ── */
+/* SYNC BAR */
+#sync-bar{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:5px 16px;border-bottom:0.5px solid var(--bd);font-size:10px;color:var(--mu)}
+.sdot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:5px;flex-shrink:0}
+.s-live{background:var(--safe)}
+.s-loading{background:var(--warn);animation:blink 1s infinite}
+.s-err{background:var(--danger)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* USER BAR */
 #ubar{flex-shrink:0;display:flex;gap:7px;padding:8px 16px;background:var(--bg);border-bottom:0.5px solid var(--bd2)}
 .upill{flex:1;padding:7px 0;border-radius:999px;border:1px solid var(--bd2);background:var(--s1);font-family:var(--mono);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s;color:var(--mu)}
 .upill.sh.active{background:var(--sh-bg);border-color:var(--sh-bd);color:var(--sh)}
 .upill.di.active{background:var(--di-bg);border-color:var(--di-bd);color:var(--di)}
 
-/* ── Content ── */
-#content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--sb) + 64px)}
+/* CONTENT */
+#content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--sb)+64px)}
 .tab{display:none;padding:12px 14px}
 .tab.active{display:block}
 
-/* ── Nav ── */
+/* NAV */
 #nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--nav);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:0.5px solid var(--bd2);padding-bottom:var(--sb);z-index:100}
 .nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 0;background:none;border:none;cursor:pointer;color:var(--mu2);font-family:var(--mono);font-size:8px;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
 .nb.active{color:var(--ac)}
 .ni{font-size:16px;line-height:1}
 
-/* ── Cards ── */
-.card{background:var(--s1);border:0.5px solid var(--bd2);border-radius:12px;padding:12px;margin-bottom:10px}
+/* CARDS */
+.card{background:var(--s1);border:0.5px solid var(--bd2);border-radius:12px;padding:12px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 .card:last-child{margin-bottom:0}
 .clbl{font-size:8px;color:var(--mu);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px}
 
-/* ── Log tab ── */
-.row2{display:flex;gap:8px}
-.row2 .field{flex:1}
+/* FORM */
+.row2{display:flex;gap:8px}.row2 .field{flex:1}
 .field{margin-bottom:8px}
 .field label{display:block;font-size:9px;color:var(--mu);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px}
 .field input,.field select{width:100%;background:var(--s2);border:1px solid var(--bd2);border-radius:8px;padding:9px 10px;color:var(--tx);font-family:var(--mono);font-size:14px;outline:none;-webkit-appearance:none;appearance:none;transition:border-color 0.2s}
@@ -68,56 +75,57 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:var(--mon
 .amt-f input{font-size:26px;font-weight:400;font-family:var(--serif);padding:8px 10px}
 .btn-add{width:100%;padding:11px;border-radius:9px;border:none;background:var(--ac);color:#fff;font-family:var(--mono);font-size:13px;font-weight:500;cursor:pointer;letter-spacing:0.05em;transition:opacity 0.15s,transform 0.1s;margin-top:2px}
 .btn-add:active{opacity:0.8;transform:scale(0.98)}
+.btn-add:disabled{opacity:0.5;cursor:not-allowed}
+.btn-sec{background:var(--s2);color:var(--tx);border:0.5px solid var(--bd2)}
 
-/* who is adding */
+/* WHO IS ADDING */
 .addbadge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 6px;border-radius:999px;border:1px solid var(--bd2);background:var(--s2);margin-bottom:10px;cursor:pointer;font-size:11px;color:var(--mu)}
 .adot{width:7px;height:7px;border-radius:50%}
 
-/* WhatsApp toggle */
+/* WA PASTE */
 .wa-toggle{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mu);cursor:pointer;margin-bottom:8px;user-select:none}
 .wa-toggle input{accent-color:var(--ac)}
 .wa-area{display:none}
 .wa-area.open{display:block}
 .wa-area textarea{width:100%;background:var(--s2);border:1px solid var(--bd2);border-radius:8px;padding:9px 10px;color:var(--tx);font-family:var(--mono);font-size:12px;line-height:1.6;outline:none;resize:none;height:72px}
-.wa-area textarea:focus{border-color:var(--ac)}
 .btn-imp{padding:7px 14px;border-radius:8px;border:1px solid var(--bd2);background:var(--s2);color:var(--tx);font-family:var(--mono);font-size:11px;cursor:pointer;margin-top:6px}
 .pok{font-size:11px;color:var(--safe);padding:4px 0;display:none;font-weight:500}
 
-/* recent list */
-.rlist{max-height:180px;overflow-y:auto}
-.ei{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:0.5px solid var(--bd)}
+/* EXPENSE LIST */
+.rlist{max-height:210px;overflow-y:auto}
+.ei{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:0.5px solid var(--bd)}
 .ei:last-child{border-bottom:none}
-.el{display:flex;align-items:center;gap:8px}
-.av{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:500;flex-shrink:0}
+.el{display:flex;align-items:center;gap:9px}
+.av{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0}
 .av.sh{background:var(--sh-bg);color:var(--sh);border:1px solid var(--sh-bd)}
 .av.di{background:var(--di-bg);color:var(--di);border:1px solid var(--di-bd)}
-.en{font-size:12px;color:var(--tx);margin-bottom:1px;max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.en{font-size:12px;color:var(--tx);margin-bottom:1px;max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .em{font-size:10px;color:var(--mu)}
-.er{display:flex;align-items:center;gap:6px}
+.er{display:flex;align-items:center;gap:7px}
 .ea{font-size:13px;font-weight:500;font-family:var(--serif)}
-.db{background:none;border:none;color:var(--mu2);font-size:15px;cursor:pointer;padding:2px 4px;line-height:1}
-.empty{text-align:center;padding:20px;color:var(--mu);font-size:12px}
+.db{background:none;border:none;color:var(--mu2);font-size:15px;cursor:pointer;padding:2px 5px;line-height:1}
+.empty{text-align:center;padding:22px;color:var(--mu);font-size:12px}
 
-/* ── Summary tab ── */
+/* SUMMARY */
 .mg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.mc{background:var(--s1);border:0.5px solid var(--bd2);border-radius:10px;padding:10px}
+.mc{background:var(--s1);border:0.5px solid var(--bd2);border-radius:10px;padding:11px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 .mc.sp{grid-column:1/-1}
 .mlbl{font-size:8px;color:var(--mu);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px}
 .mval{font-size:20px;font-weight:500;font-family:var(--serif)}
 .msub{font-size:10px;color:var(--mu);margin-top:2px}
-.srow{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:0.5px solid var(--bd)}
+.srow{display:flex;justify-content:space-between;align-items:center;margin-top:9px;padding-top:9px;border-top:0.5px solid var(--bd)}
 .si{text-align:center}
 .sn{font-size:9px;letter-spacing:0.08em;margin-bottom:3px}
-.sa{font-size:14px;font-weight:500;font-family:var(--serif)}
-.cr{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.sa{font-size:15px;font-weight:500;font-family:var(--serif)}
+.cr{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .cr:last-child{margin-bottom:0}
-.cl{font-size:11px;color:var(--tx);flex:0 0 110px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cl{font-size:11px;color:var(--tx);flex:0 0 112px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cb{flex:1;height:5px;background:var(--s3);border-radius:3px;overflow:hidden}
 .cbf{height:100%;border-radius:3px}
 .cv{font-size:10px;color:var(--mu);flex:0 0 68px;text-align:right;font-family:var(--serif)}
 
-/* ── Budget tab ── */
-.bi{margin-bottom:12px;padding-bottom:12px;border-bottom:0.5px solid var(--bd)}
+/* BUDGET */
+.bi{margin-bottom:13px;padding-bottom:13px;border-bottom:0.5px solid var(--bd)}
 .bi:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
 .bh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
 .bn{font-size:12px;font-weight:500}
@@ -129,33 +137,31 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:var(--mon
 .bir input{flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:7px;padding:5px 8px;color:var(--tx);font-family:var(--mono);font-size:12px;outline:none}
 .bir input:focus{border-color:var(--ac)}
 
-/* ── Report tab ── */
+/* REPORT */
 .rl{font-size:9px;color:var(--mu);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:7px}
 .mp{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
 .mc2{padding:5px 12px;border-radius:999px;border:1px solid var(--bd2);background:var(--s1);font-family:var(--mono);font-size:11px;color:var(--mu);cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .mc2.active{border-color:var(--ac);color:var(--ac);background:var(--sh-bg)}
-.frow{display:flex;gap:7px;margin-bottom:10px}
-.fsel{flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:8px;padding:7px 26px 7px 9px;color:var(--tx);font-family:var(--mono);font-size:11px;outline:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238a8078' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
-.dlr{display:flex;gap:7px;margin-bottom:10px}
-.btn-dl{padding:7px 14px;border-radius:8px;border:none;font-family:var(--mono);font-size:11px;font-weight:500;cursor:pointer}
-.btn-dlp{background:var(--ac);color:#fff}
-.btn-dlg{background:var(--s2);color:var(--tx);border:1px solid var(--bd2)}
 .tw{overflow-x:auto;border-radius:9px;border:0.5px solid var(--bd2)}
 table{width:100%;border-collapse:collapse;font-size:11px}
 th{background:var(--s2);padding:7px 9px;text-align:left;font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mu);font-weight:500;white-space:nowrap}
 td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-align:middle}
 .by-sh{color:var(--sh);font-weight:500}
 .by-di{color:var(--di);font-weight:500}
+.dlr{display:flex;gap:7px;margin-bottom:10px}
+.btn-dl{padding:8px 15px;border-radius:8px;border:none;font-family:var(--mono);font-size:11px;font-weight:500;cursor:pointer}
+.btn-dlp{background:var(--ac);color:#fff}
+.btn-dlg{background:var(--s2);color:var(--tx);border:0.5px solid var(--bd2)}
+.fsel{flex:1;background:var(--s2);border:1px solid var(--bd2);border-radius:8px;padding:7px 26px 7px 9px;color:var(--tx);font-family:var(--mono);font-size:11px;outline:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238a8078' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
 
-/* ── Toast ── */
-#toast{position:fixed;bottom:calc(var(--sb) + 76px);left:50%;transform:translateX(-50%) translateY(12px);background:var(--tx);border-radius:999px;padding:7px 16px;font-size:11px;color:var(--bg);opacity:0;transition:opacity 0.25s,transform 0.25s;z-index:300;white-space:nowrap;pointer-events:none}
+/* TOAST */
+#toast{position:fixed;bottom:calc(var(--sb)+76px);left:50%;transform:translateX(-50%) translateY(12px);background:var(--tx);border-radius:999px;padding:7px 16px;font-size:11px;color:var(--bg);opacity:0;transition:opacity 0.25s,transform 0.25s;z-index:300;white-space:nowrap;pointer-events:none}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
 <div id="app">
 
-  <!-- HEADER -->
   <div id="hdr">
     <div class="hdr-l">
       <div class="app-lbl">FamilySpend</div>
@@ -167,7 +173,13 @@ td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-ali
     </div>
   </div>
 
-  <!-- USER BAR -->
+  <div id="sync-bar">
+    <div style="display:flex;align-items:center">
+      <span class="sdot s-loading" id="sdot"></span>
+      <span id="slbl">Connecting to Firebase…</span>
+    </div>
+  </div>
+
   <div id="ubar">
     <button class="upill sh active" id="pill-sh" onclick="setUser('sh')">Shubham</button>
     <button class="upill di" id="pill-di" onclick="setUser('di')">Divisha</button>
@@ -178,16 +190,12 @@ td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-ali
     <!-- LOG TAB -->
     <div id="tab-log" class="tab active">
       <div class="card">
-        <div class="clbl">Add expense</div>
-
-        <!-- who is adding -->
         <div class="addbadge" id="addbadge" onclick="toggleUser()">
           <div class="adot" id="adot"></div>
           <span id="adding-name">Shubham</span>
           <span style="color:var(--mu2);font-size:10px">tap to switch</span>
         </div>
-
-        <!-- amount + category on same row -->
+        <div class="clbl">New expense</div>
         <div class="row2">
           <div class="field amt-f" style="flex:0 0 38%">
             <label>Amount ₹</label>
@@ -211,16 +219,15 @@ td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-ali
             </select>
           </div>
         </div>
-
         <div class="field">
           <label>Note</label>
           <input type="text" id="f-note" placeholder="e.g. Zomato, Uber, BigBazaar"/>
         </div>
+        <button class="btn-add" id="btn-add" onclick="addExpense()">Add Expense</button>
+      </div>
 
-        <button class="btn-add" onclick="addExpense()">Add Expense</button>
-
-        <!-- WhatsApp paste (collapsible) -->
-        <label class="wa-toggle" style="margin-top:10px">
+      <div class="card">
+        <label class="wa-toggle">
           <input type="checkbox" id="wa-chk" onchange="document.getElementById('wa-area').classList.toggle('open',this.checked)"/>
           Paste from WhatsApp
         </label>
@@ -231,12 +238,9 @@ td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-ali
         </div>
       </div>
 
-      <!-- Recent list -->
       <div class="card">
-        <div class="clbl">Recent</div>
-        <div class="rlist" id="exp-list">
-          <div class="empty">No expenses this month</div>
-        </div>
+        <div class="clbl">Recent — both Shubham & Divisha</div>
+        <div class="rlist" id="exp-list"><div class="empty">Loading…</div></div>
       </div>
     </div>
 
@@ -247,39 +251,20 @@ td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-ali
           <div class="mlbl">Total this month</div>
           <div class="mval" id="s-total">₹0</div>
           <div class="srow">
-            <div class="si">
-              <div class="sn" style="color:var(--sh)">SHUBHAM</div>
-              <div class="sa" style="color:var(--sh)" id="s-sh">₹0</div>
-            </div>
-            <div style="font-size:16px;color:var(--mu2)">+</div>
-            <div class="si">
-              <div class="sn" style="color:var(--di)">DIVISHA</div>
-              <div class="sa" style="color:var(--di)" id="s-di">₹0</div>
-            </div>
+            <div class="si"><div class="sn" style="color:var(--sh)">SHUBHAM</div><div class="sa" style="color:var(--sh)" id="s-sh">₹0</div></div>
+            <div style="font-size:18px;color:var(--mu2)">+</div>
+            <div class="si"><div class="sn" style="color:var(--di)">DIVISHA</div><div class="sa" style="color:var(--di)" id="s-di">₹0</div></div>
           </div>
         </div>
-        <div class="mc">
-          <div class="mlbl">Transactions</div>
-          <div class="mval" id="s-count">0</div>
-        </div>
-        <div class="mc">
-          <div class="mlbl">Avg / day</div>
-          <div class="mval" id="s-avg">₹0</div>
-          <div class="msub" id="s-days"></div>
-        </div>
+        <div class="mc"><div class="mlbl">Transactions</div><div class="mval" id="s-count">0</div></div>
+        <div class="mc"><div class="mlbl">Avg / day</div><div class="mval" id="s-avg">₹0</div><div class="msub" id="s-days"></div></div>
       </div>
-      <div class="card">
-        <div class="clbl">By category</div>
-        <div id="cat-chart"></div>
-      </div>
+      <div class="card"><div class="clbl">By category</div><div id="cat-chart"></div></div>
     </div>
 
     <!-- BUDGET TAB -->
     <div id="tab-budget" class="tab">
-      <div class="card">
-        <div class="clbl">Monthly limits</div>
-        <div id="bud-list"></div>
-      </div>
+      <div class="card"><div class="clbl">Monthly limits</div><div id="bud-list"></div></div>
     </div>
 
     <!-- REPORT TAB -->
@@ -287,8 +272,8 @@ td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-ali
       <div class="card">
         <div class="rl">Month</div>
         <div class="mp" id="month-picker"></div>
-        <div class="rl">Filters</div>
-        <div class="frow">
+        <div class="rl" style="margin-top:10px">Filters</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
           <select id="r-user" class="fsel">
             <option value="all">Both</option>
             <option value="sh">Shubham only</option>
@@ -312,15 +297,13 @@ td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-ali
       </div>
       <div class="card" style="padding:0;overflow:hidden">
         <div class="tw">
-          <table>
-            <thead><tr><th>Date</th><th>Amount</th><th>Category</th><th>Note</th><th>By</th></tr></thead>
-            <tbody id="r-body"></tbody>
-          </table>
+          <table><thead><tr><th>Date</th><th>Amount</th><th>Category</th><th>Note</th><th>By</th></tr></thead>
+          <tbody id="r-body"></tbody></table>
         </div>
       </div>
     </div>
 
-  </div><!-- /content -->
+  </div>
 
   <nav id="nav">
     <button class="nb active" id="nav-log" onclick="showTab('log')"><span class="ni">＋</span>Log</button>
@@ -331,93 +314,154 @@ td{padding:8px 9px;border-top:0.5px solid var(--bd);color:var(--tx);vertical-ali
 </div>
 <div id="toast"></div>
 
-<script>
-const KE='fs_exp_v2',KB='fs_bud_v2',KU='fs_usr_v2';
-const CATS=['Food & Dining','Groceries','Transport & Fuel','Shopping','Entertainment','Travel & Holidays','Fitness & Wellness','Home & Furniture','Rent','Utilities & Bills','Personal Care','Other'];
-const CC=['#c47a2e','#5a9e3a','#3d8fc4','#c45c8a','#7856c4','#3dc4a5','#4aab8a','#3d72c4','#8a4ac4','#4a7ac4','#b06030','#9a9a9a'];
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, doc, addDoc, deleteDoc, onSnapshot, query, orderBy, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-let allExp=JSON.parse(localStorage.getItem(KE)||'[]');
-let buds=JSON.parse(localStorage.getItem(KB)||'null')||Object.fromEntries(CATS.map(c=>[c,0]));
-let curUser=localStorage.getItem(KU)||'sh';
-let repMonth,repUser='all',repCat='all';
+// ── Firebase config ──────────────────────────────────────────────────────────
+const firebaseConfig = {
+  apiKey: "AIzaSyBlqITJhXnChO_RzUlyMJuSetqpeThTbwk",
+  authDomain: "familyspend-35159.firebaseapp.com",
+  projectId: "familyspend-35159",
+  storageBucket: "familyspend-35159.firebasestorage.app",
+  messagingSenderId: "5535452641",
+  appId: "1:5535452641:web:749a6ba419aa7d732556a0"
+};
 
-function save(){localStorage.setItem(KE,JSON.stringify(allExp));localStorage.setItem(KB,JSON.stringify(buds));localStorage.setItem(KU,curUser);}
-function today(){return new Date().toISOString().slice(0,10);}
-function thisM(){return new Date().toISOString().slice(0,7);}
-function mExp(m){return allExp.filter(e=>e.date.startsWith(m));}
-function fmt(n){return Math.round(n).toLocaleString('en-IN');}
-function fmtM(s){const[y,m]=s.split('-');return new Date(y,m-1,1).toLocaleDateString('en-IN',{month:'short',year:'numeric'});}
-function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2000);}
+const fbApp = initializeApp(firebaseConfig);
+const db    = getFirestore(fbApp);
 
-function userName(u){return u==='sh'?'Shubham':'Divisha';}
-function userInitials(u){return u==='sh'?'SHU':'DIV';}
+// ── Collections ──────────────────────────────────────────────────────────────
+const expCol = collection(db, 'expenses');
+const budDoc = doc(db, 'settings', 'budgets');
 
-function setUser(u){
-  curUser=u;save();
+// ── State ────────────────────────────────────────────────────────────────────
+const CATS = ['Food & Dining','Groceries','Transport & Fuel','Shopping',
+              'Entertainment','Travel & Holidays','Fitness & Wellness',
+              'Home & Furniture','Rent','Utilities & Bills','Personal Care','Other'];
+const CC   = ['#c47a2e','#5a9e3a','#3d8fc4','#c45c8a','#7856c4','#3dc4a5',
+              '#4aab8a','#3d72c4','#8a4ac4','#4a7ac4','#b06030','#9a9a9a'];
+
+let allExp   = [];
+let budgets  = Object.fromEntries(CATS.map(c=>[c,0]));
+let curUser  = localStorage.getItem('fs_user')||'sh';
+let repMonth, repUser='all', repCat='all';
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function today(){ return new Date().toISOString().slice(0,10); }
+function thisM(){ return new Date().toISOString().slice(0,7); }
+function fmt(n){ return Math.round(n).toLocaleString('en-IN'); }
+function fmtM(s){ const[y,m]=s.split('-'); return new Date(y,m-1,1).toLocaleDateString('en-IN',{month:'short',year:'numeric'}); }
+function userName(u){ return u==='sh'?'Shubham':'Divisha'; }
+function userInitials(u){ return u==='sh'?'SHU':'DIV'; }
+function mExp(m){ return allExp.filter(e=>e.date.startsWith(m)); }
+
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2200);
+}
+
+function setSyncStatus(state, msg){
+  const dot=document.getElementById('sdot');
+  const lbl=document.getElementById('slbl');
+  dot.className='sdot '+(state==='live'?'s-live':state==='err'?'s-err':'s-loading');
+  lbl.textContent=msg;
+}
+
+// ── User switching ────────────────────────────────────────────────────────────
+window.setUser = function(u){
+  curUser=u; localStorage.setItem('fs_user',u);
   document.getElementById('pill-sh').classList.toggle('active',u==='sh');
   document.getElementById('pill-di').classList.toggle('active',u==='di');
   document.getElementById('adding-name').textContent=userName(u);
   document.getElementById('adot').style.background=u==='sh'?'var(--sh)':'var(--di)';
   document.getElementById('addbadge').style.borderColor=u==='sh'?'var(--sh-bd)':'var(--di-bd)';
-}
+};
+window.toggleUser = ()=>window.setUser(curUser==='sh'?'di':'sh');
 
-function toggleUser(){setUser(curUser==='sh'?'di':'sh');}
-
+// ── Category guesser ─────────────────────────────────────────────────────────
 const KW={
-  'Food & Dining':['restaurant','zomato','swiggy','dinner','lunch','breakfast','cafe','coffee','chai','pizza','biryani','thali','dhaba','eat','dine','meal','snack','juice','bakery','hotel food'],
-  'Groceries':['grocer','grocery','vegetable','veg','fruit','kirana','bigbasket','blinkit','zepto','dmart','supermarket','milk','dal','rice','atta','provision','sabji','sabzi'],
+  'Food & Dining':['restaurant','zomato','swiggy','dinner','lunch','breakfast','cafe','coffee','chai','pizza','biryani','thali','dhaba','eat','dine','meal','snack','juice','bakery'],
+  'Groceries':['grocer','grocery','vegetable','veg','fruit','kirana','bigbasket','blinkit','zepto','dmart','supermarket','milk','dal','rice','atta','provision','sabji'],
   'Transport & Fuel':['uber','ola','cab','taxi','auto','rickshaw','rapido','bus','train','metro','local','irctc','petrol','diesel','fuel','pump','cng','parking','toll','fastag','flight'],
-  'Shopping':['amazon','flipkart','myntra','ajio','meesho','cloth','shirt','saree','shoes','apparel','fashion','mall','purchase','buy','order','gadget','electronic','phone','laptop'],
+  'Shopping':['amazon','flipkart','myntra','ajio','meesho','cloth','shirt','saree','shoes','apparel','fashion','mall','purchase','buy','order','gadget','phone','laptop'],
   'Entertainment':['movie','pvr','inox','netflix','hotstar','prime','spotify','game','concert','event','show','outing','park','sports','music','youtube'],
-  'Travel & Holidays':['hotel','resort','holiday','trip','tour','vacation','airbnb','booking','makemytrip','goibibo','travel'],
-  'Fitness & Wellness':['gym','yoga','fitness','cultfit','zumba','spa','massage','wellness','protein','supplement','doctor','hospital','medicine','pharmacy','apollo','chemist','clinic','dental'],
+  'Travel & Holidays':['hotel','resort','holiday','trip','tour','vacation','airbnb','booking','makemytrip','goibibo'],
+  'Fitness & Wellness':['gym','yoga','fitness','cultfit','spa','massage','wellness','protein','doctor','hospital','medicine','pharmacy','apollo','clinic','dental'],
   'Home & Furniture':['furniture','sofa','bed','table','chair','curtain','decor','ikea','pepperfry','plumber','carpenter','repair','appliance','ac','fridge'],
   'Rent':['rent','society','maintenance charge'],
-  'Utilities & Bills':['electricity','water','gas','internet','wifi','broadband','dth','recharge','postpaid','emi','loan','insurance','subscription','icloud'],
+  'Utilities & Bills':['electricity','water','gas','internet','wifi','broadband','dth','recharge','postpaid','emi','loan','insurance','subscription'],
   'Personal Care':['salon','haircut','parlour','makeup','skincare','grooming','laundry','barber','nykaa'],
 };
+function guessCat(t){ const tl=t.toLowerCase(); for(const[c,k] of Object.entries(KW)) if(k.some(w=>tl.includes(w))) return c; return'Other'; }
 
-function guessCat(t){const tl=t.toLowerCase();for(const[c,k]of Object.entries(KW))if(k.some(w=>tl.includes(w)))return c;return'Other';}
-
-function addExpense(){
+// ── Add expense ───────────────────────────────────────────────────────────────
+window.addExpense = async function(){
   const amt=parseFloat(document.getElementById('f-amt').value);
-  if(isNaN(amt)||amt===0){toast('Enter a valid amount');return;}
-  const cat=document.getElementById('f-cat').value;
-  const note=document.getElementById('f-note').value.trim()||cat;
-  allExp.unshift({id:Date.now(),amt,cat,note,date:today(),by:curUser});
-  save();updateHdr();renderList();
-  document.getElementById('f-amt').value='';
-  document.getElementById('f-note').value='';
-  toast(amt<0?'Refund of ₹'+fmt(Math.abs(amt))+' recorded':'Added ₹'+fmt(amt));
-}
+  if(isNaN(amt)||amt===0){ toast('Enter a valid amount'); return; }
+  const cat  = document.getElementById('f-cat').value;
+  const note = document.getElementById('f-note').value.trim()||cat;
+  const btn  = document.getElementById('btn-add');
+  btn.disabled=true; btn.textContent='Saving…';
+  try {
+    await addDoc(expCol, { amt, cat, note, date:today(), by:curUser, ts:Date.now() });
+    document.getElementById('f-amt').value='';
+    document.getElementById('f-note').value='';
+    toast((amt<0?'Refund ₹'+fmt(Math.abs(amt)):'₹'+fmt(amt))+' saved');
+  } catch(e){ toast('Error saving — check connection'); }
+  btn.disabled=false; btn.textContent='Add Expense';
+};
 
-function parsePaste(){
+// ── WhatsApp paste ────────────────────────────────────────────────────────────
+window.parsePaste = async function(){
   const text=document.getElementById('f-paste').value.trim();
-  if(!text)return;
-  let n=0;
-  text.split('\n').forEach(line=>{
+  if(!text) return;
+  const lines=text.split('\n');
+  const batch=[];
+  lines.forEach(line=>{
     const m=line.trim().match(/(\d+[\.,]?\d*)\s+(.+)/);
-    if(m){allExp.unshift({id:Date.now()+n,amt:parseFloat(m[1].replace(',','')),cat:guessCat(m[2]),note:m[2].trim(),date:today(),by:curUser});n++;}
+    if(m) batch.push({ amt:parseFloat(m[1].replace(',','')), cat:guessCat(m[2]), note:m[2].trim(), date:today(), by:curUser, ts:Date.now() });
   });
-  if(n){
-    save();updateHdr();renderList();
+  if(!batch.length){ toast('No valid lines found'); return; }
+  try {
+    await Promise.all(batch.map(e=>addDoc(expCol,e)));
     document.getElementById('f-paste').value='';
     document.getElementById('wa-chk').checked=false;
     document.getElementById('wa-area').classList.remove('open');
     const el=document.getElementById('pok');
-    el.textContent=`Imported ${n} expense${n>1?'s':''} as ${userName(curUser)}`;
-    el.style.display='block';setTimeout(()=>el.style.display='none',3000);
-  } else toast('No valid lines found');
+    el.textContent=`Imported ${batch.length} expense${batch.length>1?'s':''} as ${userName(curUser)}`;
+    el.style.display='block'; setTimeout(()=>el.style.display='none',3000);
+  } catch(e){ toast('Error importing'); }
+};
+
+// ── Delete expense ────────────────────────────────────────────────────────────
+window.delExp = async function(id){
+  try { await deleteDoc(doc(db,'expenses',id)); }
+  catch(e){ toast('Error deleting'); }
+};
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function renderAll(){
+  updateHdr();
+  renderList();
+  if(document.getElementById('tab-summary').classList.contains('active')) renderSummary();
+  if(document.getElementById('tab-budget').classList.contains('active'))  renderBudget();
+  if(document.getElementById('tab-report').classList.contains('active'))  { buildPicker(); renderReport(); }
 }
 
-function delExp(id){allExp=allExp.filter(e=>e.id!==id);save();updateHdr();renderList();}
+function updateHdr(){
+  document.getElementById('hdr-month').textContent=new Date().toLocaleDateString('en-IN',{month:'long',year:'numeric'});
+  document.getElementById('hdr-total').textContent='₹'+fmt(mExp(thisM()).reduce((s,e)=>s+e.amt,0));
+}
 
 function renderList(){
   const exps=mExp(thisM());
   const el=document.getElementById('exp-list');
-  if(!exps.length){el.innerHTML='<div class="empty">No expenses this month</div>';return;}
-  el.innerHTML=exps.slice(0,20).map(e=>{
-    const ci=CATS.indexOf(e.cat);const col=CC[ci>=0?ci:CC.length-1];
+  if(!exps.length){ el.innerHTML='<div class="empty">No expenses this month</div>'; return; }
+  el.innerHTML=exps.slice(0,40).map(e=>{
+    const ci=CATS.indexOf(e.cat); const col=CC[ci>=0?ci:CC.length-1];
     return`<div class="ei">
       <div class="el">
         <div class="av ${e.by}">${userInitials(e.by)}</div>
@@ -428,15 +472,10 @@ function renderList(){
       </div>
       <div class="er">
         <div class="ea" style="color:${e.amt<0?'var(--safe)':e.by==='sh'?'var(--sh)':'var(--di)'}">${e.amt<0?'-':''}₹${fmt(Math.abs(e.amt))}</div>
-        <button class="db" onclick="delExp(${e.id})">×</button>
+        <button class="db" onclick="delExp('${e.firebaseId}')">×</button>
       </div>
     </div>`;
   }).join('');
-}
-
-function updateHdr(){
-  document.getElementById('hdr-month').textContent=new Date().toLocaleDateString('en-IN',{month:'long',year:'numeric'});
-  document.getElementById('hdr-total').textContent='₹'+fmt(mExp(thisM()).reduce((s,e)=>s+e.amt,0));
 }
 
 function renderSummary(){
@@ -452,90 +491,126 @@ function renderSummary(){
   document.getElementById('s-avg').textContent='₹'+fmt(Math.round(total/days));
   document.getElementById('s-days').textContent=days+' day'+(days>1?'s':'')+' tracked';
   const tots=Object.fromEntries(CATS.map(c=>[c,0]));
-  exps.forEach(e=>{if(tots[e.cat]!==undefined)tots[e.cat]+=e.amt;else tots['Other']+=e.amt;});
-  const nz=CATS.filter(c=>tots[c]>0);
-  const mx=Math.max(...nz.map(c=>tots[c]),1);
+  exps.forEach(e=>{ if(tots[e.cat]!==undefined)tots[e.cat]+=e.amt; else tots['Other']+=e.amt; });
+  const nz=CATS.filter(c=>tots[c]!==0);
+  const mx=Math.max(...nz.map(c=>Math.abs(tots[c])),1);
   document.getElementById('cat-chart').innerHTML=nz.length
-    ?nz.map(c=>{const i=CATS.indexOf(c);return`<div class="cr"><div class="cl">${c}</div><div class="cb"><div class="cbf" style="width:${Math.round(tots[c]/mx*100)}%;background:${CC[i>=0?i:0]};"></div></div><div class="cv">₹${fmt(Math.round(tots[c]))}</div></div>`;}).join('')
+    ?nz.map(c=>{ const i=CATS.indexOf(c); return`<div class="cr">
+        <div class="cl">${c}</div>
+        <div class="cb"><div class="cbf" style="width:${Math.round(Math.abs(tots[c])/mx*100)}%;background:${CC[i>=0?i:0]};"></div></div>
+        <div class="cv">₹${fmt(Math.round(tots[c]))}</div>
+      </div>`; }).join('')
     :'<div class="empty" style="padding:14px">No data yet</div>';
 }
 
 function renderBudget(){
   const tots=Object.fromEntries(CATS.map(c=>[c,0]));
-  mExp(thisM()).forEach(e=>{if(tots[e.cat]!==undefined)tots[e.cat]+=e.amt;});
-  CATS.forEach(c=>{if(buds[c]===undefined)buds[c]=0;});
+  mExp(thisM()).forEach(e=>{ if(tots[e.cat]!==undefined)tots[e.cat]+=e.amt; });
+  CATS.forEach(c=>{ if(budgets[c]===undefined)budgets[c]=0; });
   document.getElementById('bud-list').innerHTML=CATS.map((c,i)=>{
-    const sp=Math.round(tots[c]||0),lim=buds[c]||0;
+    const sp=Math.round(tots[c]||0), lim=budgets[c]||0;
     const pct=lim>0?Math.min(100,Math.round(sp/lim*100)):0;
     const col=pct>=90?'var(--danger)':pct>=70?'var(--warn)':CC[i];
     return`<div class="bi">
-      <div class="bh"><div class="bn" style="color:${CC[i]}">${c}</div><div class="bv">${lim>0?'₹'+fmt(sp)+' / ₹'+fmt(lim):sp>0?'₹'+fmt(sp)+' spent':'—'}</div></div>
+      <div class="bh"><div class="bn" style="color:${CC[i]}">${c}</div><div class="bv">${lim>0?'₹'+fmt(sp)+' / ₹'+fmt(lim):sp!==0?'₹'+fmt(sp)+' spent':'—'}</div></div>
       <div class="bb"><div class="bbf" style="width:${pct}%;background:${col};"></div></div>
       <div class="bir"><label>Limit ₹</label><input type="number" inputmode="decimal" value="${lim||''}" placeholder="Set limit" onchange="setBud('${c}',this.value)"/></div>
     </div>`;
   }).join('');
 }
 
-function setBud(cat,val){buds[cat]=parseFloat(val)||0;save();renderBudget();}
+window.setBud = async function(cat,val){
+  budgets[cat]=parseFloat(val)||0;
+  try { await setDoc(budDoc, budgets); }
+  catch(e){ toast('Error saving budget'); }
+  renderBudget();
+};
 
 function buildPicker(){
   const months=[...new Set(allExp.map(e=>e.date.slice(0,7)))];
   const cur=thisM();
-  if(!months.includes(cur))months.unshift(cur);
+  if(!months.includes(cur)) months.unshift(cur);
   months.sort().reverse();
   repMonth=repMonth||months[0]||cur;
-  document.getElementById('month-picker').innerHTML=months.map(m=>`<button class="mc2 ${m===repMonth?'active':''}" onclick="selMonth('${m}')">${fmtM(m)}</button>`).join('');
+  document.getElementById('month-picker').innerHTML=months.map(m=>
+    `<button class="mc2 ${m===repMonth?'active':''}" onclick="selMonth('${m}')">${fmtM(m)}</button>`).join('');
 }
-
-function selMonth(m){repMonth=m;document.querySelectorAll('.mc2').forEach(b=>b.classList.toggle('active',b.textContent===fmtM(m)));renderReport();}
+window.selMonth = function(m){ repMonth=m; document.querySelectorAll('.mc2').forEach(b=>b.classList.toggle('active',b.textContent===fmtM(m))); renderReport(); };
 
 function renderReport(){
   repUser=document.getElementById('r-user').value;
   repCat=document.getElementById('r-cat').value;
-  let exps=mExp(repMonth||thisM());
-  if(repUser!=='all')exps=exps.filter(e=>e.by===repUser);
-  if(repCat!=='all')exps=exps.filter(e=>e.cat===repCat);
+  let exps=allExp.filter(e=>e.date.startsWith(repMonth||thisM()));
+  if(repUser!=='all') exps=exps.filter(e=>e.by===repUser);
+  if(repCat!=='all')  exps=exps.filter(e=>e.cat===repCat);
   exps=[...exps].sort((a,b)=>b.date.localeCompare(a.date));
   document.getElementById('r-body').innerHTML=exps.length
-    ?exps.map(e=>`<tr><td>${e.date.slice(5)}</td><td style="font-family:var(--serif)">₹${fmt(e.amt)}</td><td>${e.cat}</td><td>${e.note}</td><td class="${e.by==='sh'?'by-sh':'by-di'}">${userName(e.by)}</td></tr>`).join('')
+    ?exps.map(e=>`<tr>
+        <td>${e.date}</td>
+        <td style="font-family:var(--serif);font-weight:500;color:${e.amt<0?'var(--safe)':'var(--tx)'}">${e.amt<0?'-':''}₹${fmt(Math.abs(e.amt))}</td>
+        <td>${e.cat}</td><td>${e.note}</td>
+        <td class="${e.by==='sh'?'by-sh':'by-di'}">${userName(e.by)}</td>
+      </tr>`).join('')
     :'<tr><td colspan="5" style="text-align:center;color:var(--mu);padding:16px">No expenses</td></tr>';
 }
 
-function getExps(){
-  let exps=mExp(repMonth||thisM());
-  if(repUser!=='all')exps=exps.filter(e=>e.by===repUser);
-  if(repCat!=='all')exps=exps.filter(e=>e.cat===repCat);
-  return[...exps].sort((a,b)=>b.date.localeCompare(a.date));
+function getFiltered(){
+  let exps=allExp.filter(e=>e.date.startsWith(repMonth||thisM()));
+  if(repUser!=='all') exps=exps.filter(e=>e.by===repUser);
+  if(repCat!=='all')  exps=exps.filter(e=>e.cat===repCat);
+  return [...exps].sort((a,b)=>b.date.localeCompare(a.date));
 }
 
-function downloadCSV(){
-  const exps=getExps();if(!exps.length){toast('No data');return;}
+window.downloadCSV = function(){
+  const exps=getFiltered(); if(!exps.length){toast('No data');return;}
   const rows=[['Date','Amount (INR)','Category','Nature / Note','Added By']];
   exps.forEach(e=>rows.push([e.date,e.amt,e.cat,`"${e.note.replace(/"/g,'""')}"`,userName(e.by)]));
   dl(rows.map(r=>r.join(',')).join('\n'),`expenses_${repMonth||thisM()}.csv`,'text/csv');
   toast('CSV downloaded');
-}
-
-function downloadJSON(){
-  const exps=getExps();if(!exps.length){toast('No data');return;}
+};
+window.downloadJSON = function(){
+  const exps=getFiltered(); if(!exps.length){toast('No data');return;}
   dl(JSON.stringify(exps.map(e=>({date:e.date,amount:e.amt,category:e.cat,note:e.note,added_by:userName(e.by)})),null,2),`expenses_${repMonth||thisM()}.json`,'application/json');
   toast('JSON downloaded');
-}
+};
+function dl(c,n,t){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([c],{type:t})); a.download=n; a.click(); }
 
-function dl(c,n,t){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:t}));a.download=n;a.click();}
-
-function showTab(t){
+window.showTab = function(t){
   ['log','summary','budget','report'].forEach(s=>{
     document.getElementById('tab-'+s).classList.toggle('active',s===t);
     document.getElementById('nav-'+s).classList.toggle('active',s===t);
   });
-  if(t==='summary')renderSummary();
-  if(t==='budget')renderBudget();
-  if(t==='report'){buildPicker();renderReport();}
-}
+  if(t==='summary') renderSummary();
+  if(t==='budget')  renderBudget();
+  if(t==='report')  { buildPicker(); renderReport(); }
+};
 
-if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
-setUser(curUser);updateHdr();renderList();
+// ── Real-time listeners ───────────────────────────────────────────────────────
+
+// 1. Expenses — live listener, updates instantly on any device
+const q = query(expCol, orderBy('ts','desc'));
+onSnapshot(q,
+  (snap) => {
+    allExp = snap.docs.map(d=>({ firebaseId:d.id, ...d.data() }));
+    setSyncStatus('live','Live · '+new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}));
+    renderAll();
+  },
+  (err) => {
+    setSyncStatus('err','Sync error — check connection');
+    console.error(err);
+  }
+);
+
+// 2. Budgets — load once then listen for changes
+onSnapshot(budDoc, (snap)=>{
+  if(snap.exists()) budgets={...Object.fromEntries(CATS.map(c=>[c,0])),...snap.data()};
+  if(document.getElementById('tab-budget').classList.contains('active')) renderBudget();
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+window.setUser(curUser);
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+
 </script>
 </body>
 </html>
